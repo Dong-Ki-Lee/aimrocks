@@ -1,7 +1,10 @@
 #!/bin/bash
 set -e
 
-cd temp
+export AIM_DEP_DIR=/opt/aimrocks_deps
+export LD_LIBRARY_PATH=$AIM_DEP_DIR/lib:$LD_LIBRARY_PAT
+
+cd $AIM_DEP_DIR
 rm lib/*.dylib
 curl -L https://github.com/facebook/rocksdb/archive/6.29.fb.tar.gz -o rocksdb-6.29.fb.tar.gz
 tar zxvf rocksdb-6.29.fb.tar.gz

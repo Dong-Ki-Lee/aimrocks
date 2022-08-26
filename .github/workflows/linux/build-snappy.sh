@@ -1,7 +1,10 @@
 #!/bin/bash
 set -e
 
-cd temp
+export AIM_DEP_DIR=/opt/aimrocks_deps
+export LD_LIBRARY_PATH=$AIM_DEP_DIR/lib:$LD_LIBRARY_PATH
+
+cd $AIM_DEP_DIR
 curl -L https://github.com/google/snappy/archive/1.1.8.tar.gz -o snappy-1.1.8.tar.gz
 tar zxvf snappy-1.1.8.tar.gz
 cd snappy-1.1.8
